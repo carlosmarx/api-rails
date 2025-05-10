@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe ApiConstraints do
   let(:api_constraints_v1) { ApiConstraints.new(version: 1) }
@@ -6,11 +6,11 @@ RSpec.describe ApiConstraints do
 
   describe "matches?" do
     it "returns true when the version matches the 'Accept' header" do
-      request = double(host: 'localhost', headers: { "Accept" => "application/vnd.marketplace.v1" })
+      request = double(host: "localhost", headers: { "Accept" => "application/vnd.marketplace.v1" })
       expect(api_constraints_v1.matches?(request)).to be_truthy
     end
     it "returns the default version when 'default' option is specified" do
-      request = double(host: 'localhost', headers: {})
+      request = double(host: "localhost", headers: {})
       expect(api_constraints_v2.matches?(request)).to be_truthy
     end
   end

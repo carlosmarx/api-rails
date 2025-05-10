@@ -53,7 +53,7 @@ module MarketplaceApi
       generator.javascripts false
       generator.helper false
     end
-    
+
     config.api_only = true
   end
 end
