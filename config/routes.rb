@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   namespace :api, defaults: { format: :json } do
-    scope module: :v1 do
-      resources :users, only: [:create]
+    scope module: :v1, constraints: ApiConstraints.new(version: 1, default: true) do
+      resources :users, only: [ :create ]
     end
   end
 end
